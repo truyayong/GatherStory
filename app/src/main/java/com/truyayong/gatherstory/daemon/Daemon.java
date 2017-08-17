@@ -16,7 +16,6 @@ public class Daemon {
 
     public static CustomHandler networkHandler = null;
 
-
     public synchronized static CustomHandler getNetworkHandler() {
         if (networkLoadDeamon == null) {
             networkLoadDeamon = new HandlerThread("network_deamon");
