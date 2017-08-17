@@ -1,0 +1,92 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "25.0.1"
+    defaultConfig {
+        applicationId "com.truyayong.gatherstory"
+        minSdkVersion 21
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        //引入libjpeg-turbo提高图片压缩品质
+        sourceSets.main {
+            jniLibs.srcDir 'src/main/libs'
+            jni.srcDirs = []
+        }
+        ndk {
+            moduleName "libbitherjni" //生成的so名字
+            moduleName "libjpegbither" //生成的so名字
+            ldLibs "log" //Log打印
+            abiFilters "armeabi", "armeabi-v7a", "x86"    //输出指定三种abi体系结构下的so库。目前可有可无。
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:24.2.1'
+    testCompile 'junit:junit:4.12'
+
+    compile 'com.android.support:design:24.2.1'
+    compile 'com.android.support:recyclerview-v7:24.2.1'
+    compile 'com.android.support:cardview-v7:24.2.1'
+
+    //Bmob做后台
+    compile 'cn.bmob.android:bmob-sdk:3.5.0'
+
+    //Bmob即时通讯模块与推送模块
+    compile 'cn.bmob.android:bmob-im:2.0.5@aar'
+    //bmob-push：Bmob的推送包
+    //compile 'cn.bmob.android:bmob-push:0.8'
+    //Bugly上报crash
+    compile 'com.tencent.bugly:crashreport:2.4.0'
+    //引入butterknife
+    compile 'com.jakewharton:butterknife:7.0.1'
+    //引入圆形头像
+    compile 'de.hdodenhof:circleimageview:2.1.0'
+
+    //富文本
+    compile ('jp.wasabeef:richeditor-android:1.2.1' ){
+        exclude group: 'com.squareup.okhttp3'
+    }
+    compile project(":richtext")
+//    compile ('com.zzhoujay.richtext:richtext:2.3.7' ){
+//        exclude group: 'com.squareup.okhttp3'
+//    }
+    //引入Picasso
+    compile ('com.squareup.picasso:picasso:2.5.2') {
+        exclude group: 'com.squareup.okhttp3'
+    }
+    // 引入clans:fab
+    compile 'com.github.clans:fab:1.6.4'
+    //搜索模块
+    compile project(":searchmodule")
+    //引入fastjson处理Json
+    compile 'com.alibaba:fastjson:1.2.28'
+    //引入eventbus
+    compile'org.greenrobot:eventbus:3.0.0'
+    //引入Icon
+    compile "com.mikepenz:iconics-core:2.8.2@aar"
+    compile 'com.mikepenz:fontawesome-typeface:4.7.0.0@aar'
+    compile 'com.mikepenz:entypo-typeface:1.0.0.2@aar'
+    compile 'com.mikepenz:material-design-iconic-typeface:2.2.0.2@aar'
+    compile 'com.mikepenz:typeicons-typeface:2.0.7.2@aar'
+
+    compile 'com.facebook.fresco:fresco:1.5.0'
+
+    //leakcanary分析内存泄漏
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+}

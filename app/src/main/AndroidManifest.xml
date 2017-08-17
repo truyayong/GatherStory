@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.truyayong.gatherstory">
+
+    <!-- Bmob需要的权限 -->
+    <!-- 允许联网 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 获取GSM（2g）、WCDMA（联通3g）等网络状态的信息 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 获取wifi网络状态的信息 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 保持CPU 运转，屏幕和键盘灯有可能是关闭的,用于文件上传和下载 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- 获取sd卡写的权限，用于文件上传和下载 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 允许读取手机状态 用于创建BmobInstallation -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <!-- Bugly需要的权限 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+
+    <!-- Bmob im需要的权限 -->
+    <!-- 监听网络的变化 -->
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <!-- sd卡存储 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!-- 摄像头 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- 录音 -->
+    <!-- <uses-permission android:name="android.permission.RECORD_AUDIO" /> -->
+    <!-- 通知震动 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+
+    <!-- Bmob Push所需权限 -->
+    <!-- <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" /> -->
+    <!-- <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" /> -->
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".user.activities.UserLoginActivity">
+        </activity>
+        <activity android:name=".user.activities.UserRegisterActivity" />
+        <activity android:name=".user.activities.UserForgetPasswordActivity" />
+        <activity android:name=".user.activities.UserInfomationActivity" />
+        <activity android:name=".user.activities.UserEditActivity" />
+        <activity android:name=".content.activities.IndexActivity" />
+        <activity android:name=".content.activities.ShowArticleActivity" />
+        <activity android:name=".content.activities.AddArticleActivity" />
+        <activity android:name=".content.activities.AddSentenceActivity" />
+
+        <service
+            android:name=".search.services.SearchService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <!-- bmob im -->
+        <receiver android:name="cn.bmob.newim.core.ConnectChangeReceiver">
+            <intent-filter>
+                <action android:name="cn.bmob.action.RECONNECT" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="cn.bmob.newim.core.service.BmobIMService"
+            android:process=":bmobcore" />
+        <service
+            android:name="cn.bmob.newim.core.service.NotifyService"
+            android:process=":bmobcore" />
+        <service android:name="cn.bmob.newim.core.service.ReConnectService" />
+        <service android:name="cn.bmob.newim.core.service.HeartBeatService" />
+
+        <!-- 设置bmob appkey -->
+        <meta-data
+            android:name="Bmob_APP_KEY"
+            android:value="93d45d205c00931ecb893d0a5b311eca" />
+        <!-- bmobim end -->
+
+
+        <!-- &lt;!&ndash; Bmob Push &ndash;&gt; -->
+        <!-- <service -->
+        <!-- android:name="cn.bmob.push.lib.service.PushService" -->
+        <!-- android:exported="true" -->
+        <!-- android:label="PushService" -->
+        <!-- android:process=":bmobpush"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="cn.bmob.push.lib.service.PushService" /> -->
+        <!-- </intent-filter> -->
+        <!-- </service> -->
+
+
+        <!-- <receiver android:name="cn.bmob.push.PushReceiver"> -->
+        <!-- <intent-filter> -->
+
+
+        <!-- &lt;!&ndash; 系统启动完成后会调用 &ndash;&gt; -->
+        <!-- <action android:name="android.intent.action.BOOT_COMPLETED" /> -->
+        <!-- &lt;!&ndash; 解锁完成后会调用 &ndash;&gt; -->
+        <!-- <action android:name="android.intent.action.USER_PRESENT" /> -->
+        <!-- &lt;!&ndash; 监听网络连通性 &ndash;&gt; -->
+        <!-- <action android:name="android.net.conn.CONNECTIVITY_CHANGE" /> -->
+        <!-- </intent-filter> -->
+        <!-- </receiver> -->
+
+
+        <!-- &lt;!&ndash; 第四部中创建的消息接收器，在这里进行注册 &ndash;&gt; -->
+        <!-- <receiver android:name=".push.receivers.PushMessageReceiver"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="cn.bmob.push.action.MESSAGE" /> -->
+        <!-- </intent-filter> -->
+        <!-- </receiver> -->
+
+
+        <!-- &lt;!&ndash; Bmob Push end &ndash;&gt; -->
+        <activity android:name=".im.activities.ChatActivity" />
+        <activity android:name=".user.activities.ListFollowArticleActivity" />
+        <activity android:name=".user.activities.UserWriteArticlesActivity" />
+        <activity android:name=".user.activities.FollowMeActivity" />
+        <activity android:name=".user.activities.FollowUserActivity" />
+        <activity android:name=".user.activities.UserWriteSentencesActivity" />
+        <activity android:name=".user.activities.RecentReadActivity" />
+        <activity
+            android:name=".splash.activities.SplashActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".search.activities.SearchActivity"></activity>
+    </application>
+
+</manifest>

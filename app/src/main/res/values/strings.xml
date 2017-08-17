@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">GatherStory</string>
+    <!-- Strings related to user -->
+
+    <!-- Strings related to content -->
+
+    <!--chat im-->
+    <string name="longclick_speak">长按说话</string>
+    <string name="picture">照片</string>
+    <string name="camera">拍摄</string>
+    <string name="location">位置</string>
+    <string name="action_settings">Settings</string>
+</resources>

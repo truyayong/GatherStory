@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#795548</color>
+    <color name="colorPrimaryDark">#6D4A41</color>
+    <color name="colorAccent">#9E9D24</color>
+    <color name="colorPress">#F5F5F5</color>
+    <color name="searchmenu">#4BA1EE</color>
+    <color name="white">#ffffff</color>
+    <color name="menubackground">#FAFAFA</color>
+    <color name="black">#000000</color>
+    <color name="gray">#EDEFF2</color>
+    <color name="usergray">#e0e0e0</color>
+
+    <!--RefreshLayout-->
+    <color name="refresh_progress_1">#536DFE</color>
+    <color name="refresh_progress_2">#f44336</color>
+    <color name="refresh_progress_3">#FF4081</color>
+
+    <!--im chat-->
+    <color name="base_color_text_white">#ffffff</color>
+    <color name="color_1e1e1e">#1e1e1e</color>
+    <color name="color_b4">#b4b4b4</color>
+    <color name="color_line">#dadada</color>
+    <color name="base_color_text_black">#3e3e39</color>
+    <color name="color_emote_divder">#ffa1a1a1</color>
+    <color name="color_msg_system_time_bg">#20000000</color>
+    <color name="color_chat_send_status">#818181</color>
+</resources>

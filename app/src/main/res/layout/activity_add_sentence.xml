@@ -1,0 +1,75 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+
+    <LinearLayout
+        android:id="@+id/scr_top"
+        android:layout_above="@+id/rl_bottombar_add_sentence"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+        <jp.wasabeef.richeditor.RichEditor
+            android:id="@+id/rich_editor_add_sentence"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#fafafa"
+            android:layout_marginTop="16dp"
+            />
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rl_bottombar_add_sentence"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:background="#f5f5f5">
+        <View
+            android:id="@+id/line_add_sentence"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#e0e0e0"
+            android:layout_alignParentTop="true"/>
+
+
+
+        <ImageButton
+            android:id="@+id/ib_setting_add_sentence"
+            android:layout_width="48dp"
+            android:layout_height="47dp"
+            android:layout_below="@id/line_add_sentence"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/selector_image_button"
+            android:src="@drawable/ic_settings_applications_black_24dp"/>
+
+        <ImageButton
+            android:id="@+id/ib_linkg_add_sentence"
+            android:layout_width="48dp"
+            android:layout_height="47dp"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/ib_setting_add_sentence"
+            android:layout_below="@id/line_add_sentence"
+            android:background="@drawable/selector_image_button"
+            android:src="@drawable/ic_insert_link_black_24dp"/>
+
+        <ImageButton
+            android:id="@+id/ib_photo_add_sentence"
+            android:layout_width="48dp"
+            android:layout_height="47dp"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/ib_linkg_add_sentence"
+            android:layout_below="@id/line_add_sentence"
+            android:background="@drawable/selector_image_button"
+            android:src="@drawable/ic_photo_size_select_actual_black_24dp"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>
+
+
